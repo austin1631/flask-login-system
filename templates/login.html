@@ -3,36 +3,47 @@
 
 {% block content %}
 <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .login-container {
-      max-width: 400px;
-      margin: 100px auto;
-      padding: 30px;
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-    }
-    .btn{
-        margin-top: 10px;
-        margin: auto;
-    }
-  </style>
+  body {
+    background-color: #f8f9fa;
+  }
+
+  .login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn {
+    margin-top: 10px;
+    margin: auto;
+  }
+</style>
 
 <div class="container">
-    <div class="login-container">
-      <h2 class="text-center mb-4">Login</h2>
-      <form action="#" method="post">
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-        </div>
-        <div class="btn">
+  <div class="login-container">
+    <h2 class="text-center mb-4">Login</h2>
+    
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages %}
+          <p>{{msg}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form action="#" method="post">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      </div>
+      <div class="btn">
         <button type="submit" class="btn btn-primary btn-block">submit</button>
-        </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
+</div>
 
 {% endblock %}
